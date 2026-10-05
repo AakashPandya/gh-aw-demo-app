@@ -200,8 +200,13 @@ before publishing to avoid knowingly posting stale feedback.
 Prepared with gh 2.102.0, gh-aw 0.89.21, Node 24.20.0, and npm 11.19.0.
 The clean baseline's seven tests and TypeScript build pass. Ad hoc HTTP probes
 also confirmed invalid quantity rejection and missing-user 404 responses; those
-probes are intentionally not added to CI. The demo adds one cancellation test.
+probes are intentionally not added to CI. The demo adds one cancellation test: all eight tests and the build pass. Ad hoc
+probes reproduced negative-quantity acceptance, the missing-user 500, and anonymous
+deletion without adding failing tests to CI.
 
 The central source/manifest pass compile, validate, and strict validation with
 `--dir payload/workflows`. App workflow validation awaits real remote installation.
-Docker-based scanners/container checks were unavailable and are not claimed passed.
+Standalone actionlint 1.7.12 passes for CI and the generated reviewer YAML
+(with shellcheck/pyflakes disabled). Docker-based scanners/container checks were
+unavailable and are not claimed passed. No credential patterns were found in
+tracked source files; both repositories have clean committed working trees.
